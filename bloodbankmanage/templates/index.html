@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+	<!--Serveice icon sdn --><script src="https://kit.fontawesome.com/f0b4d212f8.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    
+
+    <!-- vendors CSS--> 
+    <link href="{{ url_for('static', filename= 'css/fluid.css') }}" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="fluid.css">--> 
+     
+    <!-- my style CSS for nav and header--> 
+    <link href="{{ url_for('static', filename= 'css/style.css') }}" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css">  -->
+</head>
+
+<body>
+ <header>
+    <nav>
+        <img src="{{url_for('static', filename='img/logo.png')}}" alt="logo" class="logo">
+		<!-- <img src="logo.png" alt="Digisolve Logo" class="logo"> -->
+		<ul class="main-nav">
+				<li><a href="/adminlogin">Admin</a></li>
+		</ul>
+	</nav>
+    <div class="header-box">
+        <div class="header-text-box">
+            <h1>Welcome</h1>
+            <h2>The blood bank management system</h2>
+        </div>
+        <a href="/donorlogin" class="btn btn-full">Login</a>
+        <a href="/donorregister" class="btn btn-full">Register</a>
+    </div>
+ </header>   
+
+ 
+ <section class="about-section" id="about">
+	<div class="row">
+		<div class="col span_1_of_2 about-box">
+			<h2 class="about-heading">A Blood Bank helps to build a network to Donate or Resquest Blood </h2>
+			<p class="about-para">Anybody can give blood. Bring a life back to power. Make blood donation your responsibility. </p>
+			<p class="about-para">Heroes come in all types and sizes. A single pint can save three lives, a single gesture can create a million smiles”</p>
+			<a href="#" class="btn btn-ghost">Read More</a>
+		</div>
+		<div class="col span_1_of_2 about-box">
+			<!-- <img src="about.jpg" alt="Digisolve app on Laptop" class="laptop-image"> -->
+            <img src="{{url_for('static', filename='img/about.jpg')}}" alt="about" class="laptop-image">
+		</div>
+	</div>
+</section>
+
+
+
+
+<footer>
+	<div class="row">
+		<div class="col span_1_of_2">
+			<ul class="footer-nav">
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Blog</a></li>
+				<li><a href="#">Help & Support</a></li>
+				<li><a href="#">iOS App</a></li>
+				<li><a href="#">Android App</a></li>
+			</ul>
+		</div>
+		<div class="col span_1_of_2">
+			<ul class="social-links">
+				<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+				<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+				<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<p>This Blood Bank Management System Developed By VIT Second year Students<br>
+			Rohit Singh  Rohan Shahabaje Saloni Parkar Siddhi Dhummal </p>
+	</div>
+</footer>	
+</body>
+</html>

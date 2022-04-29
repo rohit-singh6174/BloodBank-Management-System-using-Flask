@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<!--Main Content -->
+<link href="{{ url_for('static', filename= 'css/table.css') }}" rel="stylesheet">
+<div class="minerPage" >  
+
+<h1>Handover Blood Donors</h1>
+
+  <h4>Under Scrutiny Blood Donors list</h4> 
+
+<div class="stocks">  
+<table class="table">
+    <thead class="tabel-head">
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone number</th>
+      <th scorp="col">Email</th>
+      <th scope="col">Blood Group</th>
+      <th scorp="col">District</th>
+      <th scope="col">Quantity</th>
+      <th scorp="col">Status</th>
+    </thead>
+     <tbody>
+      
+      <tr>
+        {% for row in bloodreq_approv %}
+        <th scope="row">{{row.id}}</th>
+        
+        <td class="text-truncate" style="max-width: 100px;">
+          <a>{{row.name}}</a>
+        </td>
+        <td class="text-truncate" style="max-width: 100px;">
+            <a>{{row.phone}}</a>
+        </td>
+        <td class="text-truncate" style="max-width: 100px;">
+          <a>{{row.email}}</a>
+      </td>
+      <td class="text-truncate" style="max-width: 100px;">
+        <a>{{row.bloodgroup}}</a>
+    </td>
+     <td class="text-truncate" style="max-width: 100px;">
+      <a>{{row.district}}</a>
+   </td>
+   <td class="text-truncate" style="max-width: 100px;">
+    <a>{{row.bloodunit}}</a>
+   </td>
+   <td>
+    <span class="approved-btn"><a href="/reqhandover/{{row.id}}">Handover</a></span>
+   </td>
+
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+  </div>
+
+</div>
+
+<!--End Main Content-->
+{% endblock %}

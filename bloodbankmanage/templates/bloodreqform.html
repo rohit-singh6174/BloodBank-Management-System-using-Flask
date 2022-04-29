@@ -1,0 +1,102 @@
+{% extends "donorlayout.html" %}
+{% block body %}
+<!--Main Content -->
+<div class="account-page">
+ <link href="{{ url_for('static', filename= 'css/donate_form.css') }}" rel="stylesheet">
+<h1 class="account-title"> Blood Req</h1>
+<div class="donate">	
+  <form method="POST" action="">
+    {{form.hidden_tag() }}
+    <label for="name">Donor Name:</label><br>
+    {%if form.name.errors%}
+      {{ form.name(class="account-page-inputbox",id="name" ,value=current_user.name)}}<br>
+      {%for error in  donateform.name.errors%}
+      <span><span>{{error}}</span></span><br>
+      {%endfor%}
+      {%else%}
+      {{ form.name(class="account-page-inputbox",id= "name" ,value=current_user.name)}}<br>
+      <!-- <input type="text" class="account-page-inputbox" id="name" value="{{current_user.name}}"><br> -->
+      {%endif%}
+
+      <label for="phone">Phone:</label><br>
+      {%if form.phone.errors%}
+        {{form.phone(class="account-page-inputbox",id="phone",value=current_user.phone)}}<br>
+        {%for error in form.phone.errors%}
+        <span><span>{{error}}</span></span><br>
+        {%endfor%}
+        {%else%}
+        {{form.phone(class="account-page-inputbox",id="phone",value=current_user.phone)}}<br>
+        <!-- <input type="text" class="account-page-inputbox" id="phone" value="{{current_user.phone}}"><br> -->
+        {%endif%}
+     
+     
+        <label for="username">Username:</label><br>
+        {%if form.username.errors%}
+        {{form.username(class="account-page-inputbox", id="username",value=current_user.username,readonly=true)}}<br>
+        {%for error in form.username.errors%}
+        <span><span>{{error}}</span></span><br>
+        {%endfor%}
+        {%else%}
+        {{form.username(class="account-page-inputbox",id="username",value=current_user.username,readonly=true)}}<br>
+        <!-- <input type="text" class="account-page-inputbox" id="username" value="{{current_user.username}}" disabled="true"><br> -->
+        
+        {%endif%}
+
+        <label for="email">Email:</label><br>
+        {%if form.email.errors%}
+        {{form.email(placeholder='Enter Email',id="email", class="account-page-inputbox",value=current_user.email)}}<br>
+        {%for error in form.email.errors%}
+        <span><span>{{error}}</span></span><br>
+        {%endfor%}
+        {%else%}
+        <!-- <input type="text" class="account-page-inputbox" id="email" value="{{current_user.email}}" disabled="true"><br> -->
+        {{form.email(placeholder='Enter Email',id="email" ,class="account-page-inputbox",value=current_user.email)}}<br>
+        {%endif%}
+       
+        <label for="bloodgroup">Bloodgroup:</label><br>
+      {%if form.bloodgroup.errors%}
+      {{form.bloodgroup(value=current_user.bloodgroup, class="account-page-inputbox", id="bloodgroup",readonly=true)}} <br>
+      {%for error in form.bloodgroup.errors%}
+      <span><span>{{error}}</span></span><br>
+      {%endfor%}
+      {%else%}
+      {{form.bloodgroup(value=current_user.bloodgroup,class="account-page-inputbox", id="bloodgroup" ,readonly=true)}} <br>
+
+      <!-- <input type="text" class="account-page-inputbox" ,id="bloodgroup" ,value="{{current_user.bloodgroup}}" disabled="true"><br> -->
+      {%endif%}
+
+      <label for="district">District:</label><br>
+      {%if form.district.errors%}
+      {{form.district(class="account-page-inputbox", id="district",value=current_user.district)}}<br>
+      {%for error in form.district.errors%}
+      <span><span>{{error}}</span></span><br>
+      {%endfor%}
+      {%else%}
+      {{form.district(class="account-page-inputbox", id="district",value=current_user.district)}}<br>
+      <!-- <input type="text" class="account-page-inputbox", id="district" ,value="{{current_user.district}}"><br> -->
+      {%endif%}
+
+      <label for="bloodunit">BloodUnit:</label><br>
+      {%if form.bloodunit.errors%}
+      {{form.bloodunit(class="account-page-inputbox", id="bloodunit")}}<br>
+      {%for error in form.bloodunit.errors%}
+      <span><span>{{error}}</span></span><br>
+      {%endfor%}
+      {%else%}
+      {{form.bloodunit(class="account-page-inputbox", id="bloodunit")}}<br>
+      {%endif%}
+
+
+    {{ form.submit()}}
+    <!-- <input type="submit" value="Submit"> -->
+
+  </form>
+</div> 
+<div class="donate"> 
+ <center><img src="{{url_for('static', filename='img/logo.png')}}" alt="logo" width="500" height="600" > </center> 
+</div>  
+
+</div>
+
+<!--End Home Page-->
+{% endblock %}

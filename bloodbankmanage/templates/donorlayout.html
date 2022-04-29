@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blood Bank</title>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link href="{{ url_for('static', filename= 'css/side_nav_footer.css') }}" rel="stylesheet">
+<script type="text/javascript">
+	MyBanners = new Array('static/img/banner1.jpg','static/img/banner2.jpg','static/img/banner3.jpg','static/img/banner4.jpg','static/img/banner5.jpg');
+		  banner=0;
+		  function ShowBanners()
+		  {
+			  if (document.images)
+			  {
+				  banner++;
+				  if (banner == MyBanners.length)
+				  {
+					  banner=0;
+				  }
+				  document.ChangeBanner.src= MyBanners[banner]
+					  setTimeout("ShowBanners()",2000);
+			  }
+		  }
+  </script>
+
+<body onload="ShowBanners()">
+
+<input type="checkbox" id="check">
+<header>
+<div class="navbar">
+	 <label for="check"><i class="fa fa-bars" id="sidebar_btn" ></i> </label>
+	 <h3>Blood Bank</h3>
+	 {%if current_user.is_authenticated%}
+	 <a href="{{url_for('donorlogout')}}">Logout</a>
+
+	 {% else %}
+	 <a href="/donorlogin">Login </a>
+     <a href="/donorregister">Register </a>
+	 {%endif%}
+</div>
+<!--Sidebar -->
+</header>
+<div class="sidebar">
+		<center>
+			<h4>Welcome</h4><br>
+		</center>
+		<a href="/banner"><i class="fa fa-credit-card"></i><span>Welcome</span></a>
+		<a href="/donorhome"><i class="fa fa-home"></i><span> Home</span></a>
+		{%if current_user.is_authenticated%}
+		<a href="/donorstatus"><i class="fas fa-chart-line"></i><span>Status</span> </a>
+		<a href="/donateform"><i class="fas fa-hand-holding-water"></i><span>Donate</span> </a>
+		<a href="/bloodreqform"><i class="fas fa-hand-holding-water"></i><span>Request for Blood</span></a>
+		<a href="/donoraccount"><i class="fa fa-user"></i><span>Account</span> </a>
+		{%endif%}
+	</div>
+<!--Main Body Content Here -->
+{% with messages=get_flashed_messages(with_categories=true)%}
+{%if messages %}
+ {%for category,messages in messages%}
+ <div class="alert-{{category}}">
+	 {{messages}}
+	</div>
+ {%endfor%}
+ {% endif %}
+{%endwith%}
+
+
+{% block body %}
+
+{% endblock %}
+
+
+<!--End Main Content-->
+<!--footer-->
+<footer>
+  <div class="footer-Content">
+   <h1 class="footer-title">About us</h1>
+   <p> This is a Dynamic Web template created using HTML,CSS and python flask </p>
+   <p>Created by Rohit Singh</p>
+  </div> 
+</footer>
+<!--End footer-->
+</body>
+
+</html>

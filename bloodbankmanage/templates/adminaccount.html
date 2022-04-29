@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+<!--Main Content -->
+<div class="account-page">
+ <link href="{{ url_for('static', filename= 'css/account_page.css') }}" rel="stylesheet">
+<h1 class="account-title"> Welcome Admin</h1>
+	<form>
+        <label for="sender">Name:</label><br>
+        <input type="text" class="account-page-inputbox" id="name" value="{{session['name']}}" disabled="true"><br>
+        <label for="receiver">Username:</label><br>
+        <input type="text" class="account-page-inputbox" id="username" value="{{session['username']}}" disabled="true"><br>
+        <label for="amount">Email:</label><br>
+        <input type="text" class="account-page-inputbox" id="email" value="{{session['email']}}" disabled="true"><br>
+    </form>
+
+</div>
+<!--End Home Page-->
+{% endblock %}

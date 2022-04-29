@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block body %}
+<!--Main Content -->
+<div class="account-page">
+ <link href="{{ url_for('static', filename= 'css/donate_form.css') }}" rel="stylesheet">
+<h1 class="account-title"> Admin Account </h1>
+<div class="donate">	
+  <form method="POST" action="">
+    <label for="sender">Name:</label><br>
+    <input type="text" class="account-page-inputbox" id="name" value="{{session['name']}}" disabled="true"><br>
+    <label for="receiver">Username:</label><br>
+    <input type="text" class="account-page-inputbox" id="username" value="{{session['username']}}" disabled="true"><br>
+    <label for="amount">Email:</label><br>
+    <input type="text" class="account-page-inputbox" id="email" value="{{session['email']}}" disabled="true"><br>
+  </form>
+</div> 
+<div class="donate"> 
+ <center><img src="{{url_for('static', filename='img/avatar.png')}}" alt="logo" width="400" height="400" > </center> 
+</div>  
+
+</div>
+
+<!--End Home Page-->
+{% endblock %}

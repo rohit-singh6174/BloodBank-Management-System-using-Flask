@@ -1,0 +1,79 @@
+{% extends "donorlayout.html" %}
+{% block body %}
+
+<!--Main Content -->
+<link href="{{ url_for('static', filename= 'css/table.css') }}" rel="stylesheet">
+<div class="minerPage" >  
+
+<h1>Donor Status</h1>
+
+  <h4>Donor Blood Bank Status </h4> 
+  
+<div class="stocks">  
+  <h4>UnderScrunity</h4>   
+
+<table class="table">
+  <thead class="tabel-head">
+    <th scope="col">ID</th>
+        <th scope="col">Blood Group</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">date</th>
+  </thead>
+   <tbody>
+    
+    <tr>
+      {% for row in blooddonate %}
+      <th scope="row">{{row.id}}</th>
+      
+      <td class="text-truncate" style="max-width: 100px;">
+        <a>{{row.bloodgroup}}</a>
+      </td>
+      <td class="text-truncate" style="max-width: 100px;">
+          <a>{{row.bloodunit}}</a>
+      </td>
+      <td class="text-truncate" style="max-width: 100px;">
+        <a>{{row.date}}</a>
+    </td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
+</div>
+<div class="stocks">
+  <h4>Handover</h4> 
+
+  <table class="table">
+    <thead class="tabel-head">
+      <th scope="col">ID</th>
+          <th scope="col">Blood Group</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">date</th>
+    </thead>
+     <tbody>
+      
+      <tr>
+        {% for row in handover %}
+        <th scope="row">{{row.id}}</th>
+        
+        <td class="text-truncate" style="max-width: 100px;">
+          <a>{{row.bloodgroup}}</a>
+        </td>
+        <td class="text-truncate" style="max-width: 100px;">
+            <a>{{row.bloodunit}}</a>
+        </td>
+        <td class="text-truncate" style="max-width: 100px;">
+          <a>{{row.date}}</a>
+      </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+
+</div>
+
+  
+  
+</div>
+
+<!--End Main Content-->
+{% endblock %}

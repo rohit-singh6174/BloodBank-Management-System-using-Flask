@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blood Bank Admin</title>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link href="{{ url_for('static', filename= 'css/side_nav_footer.css') }}" rel="stylesheet">
+<body>
+<input type="checkbox" id="check">
+<header>
+<div class="navbar">
+	 <label for="check"><i class="fa fa-bars" id="sidebar_btn" ></i> </label>
+	 <h3>Blood Bank Admin</h3>
+	 {% if session['username'] %}
+	 <a href="{{url_for('adminlogout')}}">Logout </a>
+	 {% else %}
+	 <a href="/adminlogin">Login </a>
+     <a href="/adminregister">Register </a>
+
+	 {%endif%}
+</div>
+<!--Sidebar -->
+</header>
+<div class="sidebar">
+		<center>
+			<h4>Welcome</h4> 
+		</center>
+		<a href="/homeadmin"><i class="fa fa-home"></i><span> Home</span></a> 
+		<a href="/bloodhandover"><i class="fas fa-handshake"></i><span>Donate Handover </span></a>
+		<a href="/bloodreqhandover"><i class="fas fa-handshake"></i><span>Request Handover </span></a>
+		<a href="/bloodapproved"><i class="fas fa-calendar-check"></i></i><span>Donate Approve</span></a>
+		<a href="/bloodreqapproved"><i class="fas fa-calendar-check"></i></i><span>Request Approve</span></a>
+		<a href="/bloodreqlist"><i class="fas fa-hand-holding-water"></i><span>Blood Request List</span></a>
+		<a href="/blooddonatelist"><i class="fas fa-hand-holding-water"></i><span>Blood Donates List</span> </a>
+		<a href="/adminaccount"><i class="fa fa-user"></i><span>Account</span> </a>
+	
+	</div>
+
+<!--Main Body Content Here -->
+{% with messages=get_flashed_messages(with_categories=true)%}
+{%if messages %}
+ {%for category,messages in messages%}
+ <div class="alert-{{category}}">
+	 {{messages}}
+	</div>
+ {%endfor%}
+ {% endif %}
+{%endwith%}
+
+
+{% block body %}
+
+{% endblock %}
+
+
+<!--End Main Content-->
+<!--footer-->
+<footer>
+  <div class="footer-Content">
+   <h1 class="footer-title">About us</h1>
+   <p> This is a Dynamic Web template created using HTML,CSS and python flask </p>
+   <p>Created by Rohit Singh</p>
+  </div> 
+</footer>
+<!--End footer-->
+</body>
+
+</html>
